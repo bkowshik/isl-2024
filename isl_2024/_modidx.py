@@ -7,4 +7,5 @@ d = { 'settings': { 'branch': 'main',
                 'lib_path': 'isl_2024'},
   'syms': { 'isl_2024.core': {'isl_2024.core.foo': ('core.html#foo', 'isl_2024/core.py')},
             'isl_2024.scrape_live_stats': {},
-            'isl_2024.scrape_matches': {}}}
+            'isl_2024.scrape_matches': {},
+            'isl_2024.scrape_wallstream': {}}}
