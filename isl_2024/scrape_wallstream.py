@@ -35,7 +35,7 @@ if not os.path.exists(data_dir):
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename=os.path.join(log_dir, 'scrape_wallstream.log'), filemode='a')
 
 # %% ../nbs/03_scrape_wallstream.ipynb 5
-match_id = 66795
+match_id = 66796
 url = f"https://www.indiansuperleague.com/functions/wallstream/?sport_id=2&client_id=5KEUfrMT/+2lgecJyh42zA==&match_id={match_id}"
 headers = {
     'accept': '*/*',

@@ -35,7 +35,7 @@ if not os.path.exists(data_dir):
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename=os.path.join(log_dir, 'scrape_live_stats.log'), filemode='a')
 
 # %% ../nbs/02_scrape_live_stats.ipynb 5
-match_id = 66795
+match_id = 66796
 url = f'https://www.indiansuperleague.com/football/live/india_sl_stats/json/{match_id}.json'
 headers = {
     'accept': '*/*',
