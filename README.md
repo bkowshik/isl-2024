@@ -25,6 +25,11 @@ $ pip install -e .
 $ nbdev_prepare
 ```
 
-## Scrapers
+## Notebooks
 
-1.  Scrape matches.
+0.  Utils: Utility functions for scraping and parsing data.
+1.  Scrape matches: Scrape details of matches like start/end datetime
+    and game IDs required for scraping match events.
+2.  Scrape live stats: Scrape live match details like goals, cards, and
+    substitutions.
+3.  Scrape wallstream: Scrape match commentary from Wallstream.
