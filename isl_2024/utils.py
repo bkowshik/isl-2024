@@ -8,7 +8,6 @@ import warnings
 warnings.filterwarnings('ignore')
 
 import json
-import logging
 import os
 import requests
 import datetime
@@ -34,8 +33,6 @@ if not os.path.exists(log_dir):
 if not os.path.exists(data_dir):
     os.makedirs(data_dir)
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename=os.path.join(log_dir, 'utils.log'), filemode='a')
-
 # %% ../nbs/00_utils.ipynb 6
 def get_live_matches(now = datetime.datetime.now(pytz.timezone('Asia/Kolkata'))):
     with open(os.path.join(data_dir, 'matches.txt'), 'r') as f:
@@ -58,8 +55,7 @@ def get_live_matches(now = datetime.datetime.now(pytz.timezone('Asia/Kolkata')))
 
     live_matches = matches_df[
         (now >= matches_df["start_at"] - datetime.timedelta(minutes = 15)) &
-        (now <= matches_df["end_at"] + datetime.timedelta(minutes = 60))
+        (now <= matches_df["end_at"] + datetime.timedelta(minutes = 30))
     ]
     game_ids = list(live_matches['game_id'].values)
-    logging.info('Live matches: {} [{}]'.format(len(game_ids), ', '.join(game_ids)))
     return(game_ids)
