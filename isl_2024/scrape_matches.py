@@ -46,7 +46,7 @@ response = requests.get(url, headers=headers)
 # %% ../nbs/01_scrape_matches.ipynb 6
 if response.status_code == 200:
     logging.info('API request successful. Content length: {}'.format(len(response.content)))
-    with open(os.path.join(data_dir, 'scrape_matches.txt'), 'a') as f:
+    with open(os.path.join(data_dir, 'matches.txt'), 'a') as f:
         f.write(response.text + "\n")
 else:
     logging.error('API request failed. Status code: {}'.format(response.status_code))
