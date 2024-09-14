@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "isl-2024"
+  site-url: "https://bkowshik.github.io/isl-2024"
+  description: "Indian Super League, 2024"
+  repo-branch: main
+  repo-url: "https://github.com/bkowshik/isl-2024"
