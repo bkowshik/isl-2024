@@ -1,3 +1,4 @@
-requests==2.32.3
 nbdev==2.3.29
 pandas==2.2.2
+requests==2.32.3
+shiny==1.0.0
