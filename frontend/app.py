@@ -24,34 +24,17 @@ def server(input, output, session):
         return f"{input.daterange()[0]} to {input.daterange()[1]}"
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    print(script_dir)
     parent_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
     log_dir = os.path.join(parent_dir, 'logs')
-    data_dir = os.path.join(parent_dir, 'data')
+    data_dir = os.path.join(parent_dir, 'data/clean') # Shiny app will use cleaned datasets.
 
     @render.data_frame
     def matches_df():
 
-        with open(os.path.join(data_dir, 'matches.txt'), encoding='utf-8') as f:
-            matches = json.loads(f.readlines()[-1])['matches']
-
-        df = []
-        for match in matches:
-            df.append({
-                'start_at': match['start_date'],
-                'end_at': match['end_date'],
-                'home_team': match['participants'][0]['name'],
-                'away_team': match['participants'][1]['name'],
-                'score': match['winning_margin'],
-            })
-        df = pd.DataFrame(df)
-        df['date'] = pd.to_datetime(df['start_at']).dt.strftime("%Y-%m-%d")
-        df['start_at'] = pd.to_datetime(df['start_at'])
-        df['end_at'] = pd.to_datetime(df['start_at'])
-        df['start_time'] = pd.to_datetime(df['start_at']).dt.strftime("%H:%M")
-        df['end_time'] = pd.to_datetime(df['end_at']).dt.strftime("%H:%M")
-        df['match_id'] = df.index + 1
-        print(df.head())
+        df = pd.read_csv(os.path.join(data_dir, 'matches.csv'), parse_dates=["start_at", "end_at"])
+        df['date'] = df['start_at'].dt.strftime("%Y-%m-%d")
+        df['start_time'] = df['start_at'].dt.strftime("%I:%M %p")
+        df['end_time'] = df['end_at'].dt.strftime("%I:%M %p")
 
         df_render = df.sort_values(by="start_at", ascending=False) \
             .loc[(df['date'] >= str(input.daterange()[0])) & (df['date'] <= str(input.daterange()[1])),
