@@ -16,7 +16,7 @@ $ pip install git+https://github.com/bkowshik/isl-2024.git
 
 ``` bash
 # make sure isl_2024 package is installed in development mode
-$ pip install -e .
+$ pip install -e '.[dev]'
 
 # make changes under nbs/ directory
 # ...
