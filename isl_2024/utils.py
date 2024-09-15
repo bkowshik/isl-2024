@@ -26,7 +26,7 @@ except NameError:
 parent_dir = os.path.abspath(os.path.join(script_dir, os.pardir))
 log_dir = os.path.join(parent_dir, 'logs')
 data_dir = os.path.join(parent_dir, 'data')
-    
+
 if not os.path.exists(log_dir):
     os.makedirs(log_dir)
 

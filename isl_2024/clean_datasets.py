@@ -13,6 +13,7 @@ import json
 import logging
 import os
 import requests
+from glob import glob
 
 import pandas as pd
 
@@ -59,7 +60,7 @@ for match in matches:
     })
 df = pd.DataFrame(df)
 df['start_at'] = pd.to_datetime(df['start_at'])
-df['end_at'] = pd.to_datetime(df['start_at'])
+df['end_at'] = pd.to_datetime(df['end_at'])
 df['match_id'] = df.index + 1
 df = df[['match_id', 'start_at', 'end_at', 'home_team', 'away_team', 'score']]
 
