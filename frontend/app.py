@@ -11,7 +11,7 @@ app_ui = ui.page_fluid(
             ui.input_date_range("daterange", "", start="2024-09-13", end = datetime.date.today(), separator="-", min = "2024-09-13", max = "2024-12-31"),
             ui.output_data_frame("matches_df"),
         ),
-        title="Indian Super League, 2024",
+        title="⚽️ Indian Super League, 2024",
         id="page",
         bg="#F5F5F5",
     ),
